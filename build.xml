@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<project name="gwb" default="compile" basedir=".">
+    <property name="tomcat.lib" value="/usr/local/tomcat/lib" />
+    <property name="dest.dir" value="WEB-INF/classes" />
+    <property name="src.dir" value="WEB-INF/src" />
+    <target name="init">
+        <mkdir dir="${dest.dir}" />
+    </target>
+    <target name="compile" depends="init">
+        <javac srcdir="${src.dir}" destdir="${dest.dir}">
+            <classpath>
+                <fileset dir="${tomcat.lib}">
+                    <include name="*.jar" />
+                </fileset>
+                <fileset dir="WEB-INF/lib">
+                    <include name="*.jar" />
+                </fileset>
+            </classpath>
+        </javac>
+    </target>
+   <copy todir="${dest.dir}">
+    		<fileset dir="${src.dir}">
+    		    <exclude name="**/.svn"/>
+    		   	<exclude name="**/*.java"/>
+    		</fileset>   
+    	</copy> 
+   <target name="clean">
+        <delete dir="${dest.dir}" />
+    </target>
+</project>

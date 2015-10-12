@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jobs>
+<job name="applicationJobEveryDayStatLog" class="com.zhanzhao.timeTask.ApplicationJobEveryDayStatLog" cron="0 0 2 * * ?"/>
+<job name="applicationedJobStat" class="com.zhanzhao.timeTask.ApplicationedJobStat" cron="0 0 1 * * ?"/>
+<job name="updateAcitivityEnterpriseUser" class="com.zhanzhao.timeTask.UpdateAcitivityEnterpriseUser" cron="0 0 1 * * ?"/>
+<job name="dMEveryDayTask" class="com.zhanzhao.timeTask.DMEveryDayTask" cron="0 0 2 * * ?"/>
+<job name="updatePromotionCache" class="com.zhanzhao.timeTask.UpdatePromotionCache" cron="0 0 3 * * ?"/>
+</jobs>
