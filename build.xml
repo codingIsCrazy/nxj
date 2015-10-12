@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<project name="gwb" default="compile" basedir=".">
+<project name="nxj" default="compile" basedir=".">
     <property name="tomcat.lib" value="/usr/local/tomcat/lib" />
     <property name="dest.dir" value="WEB-INF/classes" />
     <property name="src.dir" value="WEB-INF/src" />
