@@ -31,7 +31,7 @@ import com.nongxiangjie.util.ApiMessage;
  *
  */
 @Controller
-@RequestMapping(value="/userController")
+@RequestMapping(value="/api/v1/userController")
 public class UserController {
 
 	final static Logger LOG = LoggerFactory.getLogger(UserController.class);
