@@ -1,9 +1,10 @@
 package util;
 
-import java.util.Random;
 import java.util.UUID;
 
 public class UuidUtil {
+	
+	private static Byte[] uuidByte = new Byte[0];
 	
 	public static void main(String[] args) {
 		System.out.println(getUUID());
@@ -17,6 +18,20 @@ public class UuidUtil {
         String uuid = UUID.randomUUID().toString().trim().replaceAll("-", "");    
         return uuid;    
     }    
+    
+    
+    /**
+     * 生成唯一性id,同步
+     */
+    public  static String getUniqueUUid(){
+    		synchronized (uuidByte) {
+    			String uuid = UUID.randomUUID().toString().trim().replaceAll("-", "");    
+    	        return uuid;
+		}
+    		
+    }
+    
+    
     
     /**  
      * 自定义规则生成32位编码  

@@ -17,6 +17,7 @@ public class CacheServlet extends HttpServlet {
 	
 	@Override
 	public void init() throws ServletException {
+		System.out.println("init");
 		//List<TitleOneBean> titleOneList = StatisticsUtil.queryTitleAll(null);
 		//Element element = new Element("titleOneList", titleOneList);
 		//CacheUtil.putElement(CacheUtil.CACHE_TITLE,element);

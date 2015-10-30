@@ -10,7 +10,7 @@
 	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 	
-	<context:component-scan base-package="com.zhanzhao">
+	<context:component-scan base-package="com.nongxiangjie">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/> 
 	</context:component-scan>
 	<!--<context:component-scan base-package="test.java.junittest"/>-->
@@ -20,7 +20,7 @@
 
 	<bean id="master_dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
 		<property name="jndiName">
-			 <value>java:comp/env/jdbc/want_master</value>
+			 <value>java:comp/env/jdbc/nxj_master</value>
 		</property>
 	</bean>
 	<!--  
