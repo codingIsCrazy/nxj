@@ -25,6 +25,8 @@ public class User {
 	/**token**/
 	public String token;
 	
+	/**头像地址**/
+	
 	public String getId() {
 		return id;
 	}

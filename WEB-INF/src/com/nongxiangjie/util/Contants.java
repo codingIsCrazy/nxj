@@ -2,8 +2,6 @@ package com.nongxiangjie.util;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.HashMap;
-import java.util.Map;
 
 public class Contants {
 		

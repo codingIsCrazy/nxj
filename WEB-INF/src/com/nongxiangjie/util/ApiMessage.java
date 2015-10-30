@@ -1,6 +1,5 @@
 package com.nongxiangjie.util;
 
-import sun.launcher.resources.launcher;
 
 public class ApiMessage {
 
