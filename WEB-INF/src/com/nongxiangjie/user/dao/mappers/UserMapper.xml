@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
 					
-<mapper namespace="com.nongxiangjie.user.dao.mapper.UserMapper">
+<mapper namespace="com.nongxiangjie.user.dao.mappers.UserMapper">
 	
 	<resultMap type="com.nongxiangjie.user.dto.User" id="user">
 		<result column="id" property="id"/>
@@ -9,8 +9,9 @@
 		<result column="password" property="password"/>
 		<result column="status" property="status"/>
 		<result column="source" property="source"/>
-		<result column="createDate" property="create_date"/>
+		<result column="create_date" property="createDate"/>
 		<result column="token" property="token"/>
+		<result column="head_image" property="headImage"/>
 	</resultMap>
 
 	<!-- 查询用户 -->
@@ -31,15 +32,21 @@
 	
 	
 	<!-- 添加用户 -->
-	<insert id="insertUser" parameterType="com.nongxiangjie.user.dto.User" >
-		insert into users(id,name,password,status,source,create_date,token)  
-					values(#{id},#{name},#{status},#{source},#{createDate},#{token})
+	<insert id="addUser" parameterType="com.nongxiangjie.user.dto.User" >
+		insert into users(id,name,password,status,source,create_date,token,head_image)  
+					values(#{id},#{name},#{password},#{status},#{source},#{createDate},#{token},#{headImage})
 	</insert>
 	
 	<!-- 修改密码 -->
 	<update id="updateUserPassword" parameterType="java.util.Map">
-		update users set password=#{password},token=#{oldToken} 
-			where token=#{newToken}
+		update users set password=#{newPassword},token=#{newToken} 
+			where token=#{token}
+	</update>
+	
+	<!-- 修改密码 -->
+	<update id="updateHeadImage" parameterType="java.util.Map">
+		update users set head_image=#{headImage}
+			where token=#{token}
 	</update>
 	
 

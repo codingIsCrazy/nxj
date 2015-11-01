@@ -1,4 +1,4 @@
-package com.nongxiangjie.user.dao.mapper;
+package com.nongxiangjie.user.dao.mappers;
 
 import java.util.Map;
 
@@ -25,6 +25,11 @@ public class UserMapper extends AbstractDaoSupport implements UserDao{
 
 	@Override
 	public void updateUserPassword(Map<String, Object> map) throws Exception {
+		getSession().update(map);
+	}
+
+	@Override
+	public void updateHeadImage(Map<String, Object> map) throws Exception {
 		getSession().update(map);
 	}
 

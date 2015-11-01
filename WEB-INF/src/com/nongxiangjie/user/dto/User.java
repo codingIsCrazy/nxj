@@ -26,6 +26,7 @@ public class User {
 	public String token;
 	
 	/**头像地址**/
+	public String headImage;
 	
 	public String getId() {
 		return id;
@@ -68,6 +69,12 @@ public class User {
 	}
 	public void setToken(String token) {
 		this.token = token;
+	}
+	public String getHeadImage() {
+		return headImage;
+	}
+	public void setHeadImage(String headImage) {
+		this.headImage = headImage;
 	}
 	
 	

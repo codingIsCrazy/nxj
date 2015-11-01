@@ -22,5 +22,8 @@ public interface UserDao {
 	public void updateUserPassword(Map<String, Object> map) throws Exception;
 	
 	
-	
+	/**
+	 * 更新头像地址
+	 */
+	public void updateHeadImage(Map<String, Object> map) throws Exception;
 }

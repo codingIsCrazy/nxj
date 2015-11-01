@@ -20,11 +20,11 @@ public class ImageUtil {
 	
 	private static final String ALIYUN_IMAGE_URL = "http://oss-cn-beijing.aliyuncs.com";
 	
-	private static final String ALIYUN_IMAGE_KEY = "";
+	private static final String ALIYUN_IMAGE_KEY = "3aBRYRaFRxAWWOy5";
 	
-	private static final String ALIYUN_IMAGE_VALUE = "";
+	private static final String ALIYUN_IMAGE_VALUE = "T6U3NfnyieaaMgFYXUDzA8rLaelIb6";
 	
-	private static final String ALIYUN_IMAGE_TARGET_URL_PRE = "";
+	private static final String ALIYUN_IMAGE_TARGET_URL_PRE = "http://image.nongxiangjie.com/";
 	
 	private static byte[] readInputStream(InputStream inStream) throws Exception{
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();

@@ -34,4 +34,9 @@ public class UserServiceImpl implements UserService{
 		userDao.updateUserPassword(map);
 	}
 
+	@Override
+	public void updateHeadImage(Map<String, Object> map) throws Exception {
+		userDao.updateHeadImage(map);
+	}
+
 }

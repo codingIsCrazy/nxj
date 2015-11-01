@@ -20,4 +20,9 @@ public interface UserService {
 	 * 更新用户密码
 	 */
 	public void updateUserPassword(Map<String, Object> map) throws Exception;
+
+	/**
+	 * 更新头像地址
+	 */
+	public void updateHeadImage(Map<String, Object> map) throws Exception;
 }

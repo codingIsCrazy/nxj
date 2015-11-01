@@ -49,7 +49,7 @@ public class ApiJsonUtil {
 	 * 判断token是否为空
 	 */
 	public static boolean tokenIsEmpty(String token){
-		if(token != null && !"".equals(token)){
+		if(token == null || "".equals(token)){
 			return true;
 		}
 		return false;

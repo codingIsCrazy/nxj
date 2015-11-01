@@ -11,7 +11,7 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
 
 	<bean id="sqlSessionFactory" class="org.apache.ibatis.spring.SqlSessionFactoryBean">
-		<property name="mapperLocations" value="classpath*:com/zhanzhao/**/dao/mappers/*.xml" />
+		<property name="mapperLocations" value="classpath*:com/nongxiangjie/**/dao/mappers/*.xml" />
 		<property name="dataSource" ref="dataSource" />
 		<property  name="configLocation"  value="classpath:resources/mybatis/mybatis-config.xml"/>
 	</bean>
