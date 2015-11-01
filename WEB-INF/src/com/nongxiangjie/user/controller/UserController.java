@@ -42,6 +42,7 @@ public class UserController {
 
 	final static Logger LOG = LoggerFactory.getLogger(UserController.class);
 	
+	
 	@Resource
 	private UserService userService;
 	
