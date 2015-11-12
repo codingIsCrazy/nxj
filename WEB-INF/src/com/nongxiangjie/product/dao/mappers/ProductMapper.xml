@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN" "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+					
+<mapper namespace="com.nongxiangjie.product.dao.mappers.ProductMapper">
+
+	<resultMap type="com.nongxiangjie.product.dto.Product" id="product">
+		<result column="id" property="id"/>
+		<result column="full_name" property="fullName"/>
+		<result column="short_name" property="shortName"/>
+		<result column="province" property="province"/>
+		<result column="city" property="city"/>
+		<result column="area" property="area"/>
+		<result column="address" property="address"/>
+		<result column="address" property="address"/>
+		<result column="image_url" property="imageUrl"/>
+		<result column="cost_price" property="costPrice"/>
+		<result column="discount_price" property="discountPrice"/>
+		<result column="sale_price" property="salePrice"/>
+		<result column="product_detail" property="productDetail"/>
+		<result column="create_time" property="createTime"/>
+		<result column="product_standard" property="productStandard"/>
+	</resultMap>
+	
+	<!-- 产品图片 -->
+	<resultMap type="com.nongxiangjie.product.dto.ProductImage" id="productImage">
+		<result column="id" property="id"/>
+		<result column="image_url" property="imageUrl"/>
+		<result column="product_id" property="productId"/>
+		<result column="status" property="status"/>
+	</resultMap>
+	
+	<!-- 用户评论 -->
+	<resultMap type="com.nongxiangjie.product.dto.ProductComment" id="productComment">
+		<result column="id" property="id"/>
+		<result column="product_id" property="productId"/>
+		<result column="user_id" property="userId"/>
+		<result column="content" property="content"/>
+		<result column="star_count" property="starCount"/>
+		<result column="create_time" property="createTime"/>
+		<collection property="user" ofType="com.nongxiangjie.user.dto.User">
+			<result column="name" property="name"/>
+			<result column="head_image" property="headImage"/>
+		</collection>
+	</resultMap>
+	
+	<select id="getProduct" parameterType="java.util.Map" resultMap="product">
+		select id ,full_name ,short_name ,province,city,
+				area,address,image_url,cost_price,discount_price ,sale_price ,
+				product_detail ,create_time ,product_standard 
+		from product
+		<where>
+			status=1
+			<if test="productName != null and productName != ''">
+				and full_name like ('%' || #{productName} || '%')
+			</if>
+			<if test="province != null and province != ''">
+				and province=#{province}
+			</if>
+			<if test="city != null and city != ''">
+				and city=#{city}
+			</if>
+			<if test="area != null and area != ''">
+				and area=#{area}
+			</if>
+			<if test="id != null and id != ''">
+				and id=#{id}
+			</if>
+		</where>
+		<if test="limit != null and limit > 0">
+				limit #{limit} offset #{offset}
+			</if>
+	</select>
+	
+	
+	<!-- 获取总数 -->
+	<select id="getProductCount" parameterType="java.util.Map" resultType="int">
+		select count(*)
+		from product
+		<where>
+			status=1
+			<if test="productName != null and productName != ''">
+				and full_name like ('%' || #{productName} || '%')
+			</if>
+			<if test="province != null and province != ''">
+				and province=#{province}
+			</if>
+			<if test="city != null and city != ''">
+				and city=#{city}
+			</if>
+			<if test="area != null and area != ''">
+				and area=#{area}
+			</if>
+		</where>
+	</select>
+	
+	
+	<!-- 获取产品图片 -->
+	<select id="getProductImageListByProductId" parameterType="String" resultMap="productImage">
+		select id,image_url,product_id,status 
+		form product_image 
+		where product_id=#{productId}
+	</select>
+	
+	
+	<!-- 获取评论 -->
+	<select id="getCommentByProductId" parameterType="java.util.Map" resultMap="comment">
+		select pc.id,pc.product_id,pc.user_id,pc.content,pc.star_count,pc.create_time,u.name,u.head_image
+		from product_comment pc join users u on pc.user_id=u.id
+		where pc.product_id=#{productId}
+		<if test="limit != null and limit > 0">
+				limit #{limit} offset #{offset}
+		</if>
+	</select>
+	
+	<!-- 获取评论数量 -->
+	<select id="getCommentCountByProductId" parameterType="String" resultType="int">
+		select count(*)
+		from product_comment pc join users u on pc.user_id=u.id
+		where pc.product_id=#{productId}
+		order by start_count desc,create_time
+	</select>
+	
+
+	<!-- 查询地区 -->
+	<select id="getAdminDivision" parameterType="java.util.Map" resultType="java.util.Map">
+		select province,city,area
+		from admin_division
+		<where>
+			<if test="province != null and province != ''">
+				province =#{province} 
+			</if>
+			<if test="city != null and city != ''">
+				and city=#{city}
+			</if>
+			<if test="area != null and area != ''">
+				and area=#{area}
+			</if>
+		</where>
+	</select>
+</mapper>
